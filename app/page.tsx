@@ -20,6 +20,8 @@ import BlurText from "./components/BlurText"
 import { EmailVerification } from "./components/EmailVerification"
 import RotatingText from "./components/RotatingText"
 import { DownloadIcon, Smartphone } from "lucide-react"
+import Banner from './components/Banner'
+import CTAButton from './components/CTAButton'
 
 export default function SenipyHomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -36,6 +38,23 @@ export default function SenipyHomePage() {
     }
     setIsMenuOpen(false)
   }
+
+  return (
+    <>
+      {/* 🔔 A/B Test Banner at the Top */}
+      <Banner />
+
+      {/* 🧠 Your main layout or hero section */}
+      <main className="min-h-screen flex flex-col items-center justify-center px-4">
+        {/* Example content */}
+        <h1 className="text-4xl font-bold mb-6">Welcome to SENIPY AI</h1>
+
+        {/* 🧪 A/B Test CTA Button */}
+        <CTAButton />
+      </main>
+    </>
+  )
+}
 
   const handleAuth = (type: "signin" | "signup", formData: FormData) => {
     const email = formData.get("email") as string

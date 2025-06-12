@@ -18,3 +18,20 @@ export default function RootLayout({
     </html>
   )
 }
+// app/layout.tsx
+'use client'
+
+import { useEffect } from 'react'
+import { initPostHog } from '@/lib/posthog'
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    initPostHog()
+  }, [])
+
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  )
+}
